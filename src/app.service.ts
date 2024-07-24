@@ -70,6 +70,7 @@ export class AppService {
     const page = pdfDoc.addPage([600, 600]);
     const { height } = page.getSize();
 
+    //PDF magic started :)
     page.drawText('Popular Movies', {
       x: 50,
       y: height - 50,
@@ -99,6 +100,7 @@ export class AppService {
     const page = pdfDoc.addPage([600, 600]);
     const { height } = page.getSize();
 
+    //PDF magic started :)
     page.drawText(movie.title, {
       x: 50,
       y: height - 50,
