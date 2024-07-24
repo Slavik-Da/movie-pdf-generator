@@ -23,6 +23,8 @@ export class AppService {
   private readonly apiKey = process.env.TMDB_API_KEY;
   private readonly apiBaseUrl = process.env.TMDB_API_URL;
   private readonly logger = new Logger(AppService.name);
+  private readonly PageHeight = 600;
+  private readonly PageWidth = 600;
 
   async getPopularMoviesPdf(): Promise<Uint8Array> {
     try {
@@ -67,7 +69,7 @@ export class AppService {
   private async generateMoviesPdf(movies: Movie[]): Promise<Uint8Array> {
     const pdfDoc = await PDFDocument.create();
     const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
-    const page = pdfDoc.addPage([600, 600]);
+    const page = pdfDoc.addPage([this.PageHeight, this.PageWidth]);
     const { height } = page.getSize();
 
     //PDF magic started :)
@@ -97,7 +99,7 @@ export class AppService {
   private async generateMoviePdf(movie: Movie): Promise<Uint8Array> {
     const pdfDoc = await PDFDocument.create();
     const timesRomanFont = await pdfDoc.embedFont(StandardFonts.TimesRoman);
-    const page = pdfDoc.addPage([600, 600]);
+    const page = pdfDoc.addPage([this.PageHeight, this.PageWidth]);
     const { height } = page.getSize();
 
     //PDF magic started :)
