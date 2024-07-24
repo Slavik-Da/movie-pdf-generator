@@ -27,8 +27,7 @@ export class AppService {
   async getPopularMoviesPdf(): Promise<Uint8Array> {
     try {
       const movies = await this.fetchPopularMovies();
-      const pdfBytes = await this.generateMoviesPdf(movies);
-      return pdfBytes;
+      return this.generateMoviesPdf(movies);
     } catch (error) {
       this.logger.error('Failed to generate popular movies PDF', error);
       throw new InternalServerErrorException('Could not generate PDF');
@@ -38,8 +37,7 @@ export class AppService {
   async getMovieByIdPdf(id: string): Promise<Uint8Array> {
     try {
       const movie = await this.fetchMovieById(id);
-      const pdfBytes = await this.generateMoviePdf(movie);
-      return pdfBytes;
+      return this.generateMoviePdf(movie);
     } catch (error) {
       this.logger.error(`Failed to generate PDF for movie ID: ${id}`, error);
       throw new InternalServerErrorException('Could not generate PDF');
