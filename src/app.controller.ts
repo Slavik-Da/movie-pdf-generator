@@ -41,7 +41,7 @@ export class AppController {
       res.setHeader('Content-Type', 'application/pdf');
       res.setHeader(
         'Content-Disposition',
-        'attachment; filename=popular_movies.pdf',
+        `attachment; filename=movie_${id}.pdf`,
       );
       res.end(pdf);
     } catch (error) {
