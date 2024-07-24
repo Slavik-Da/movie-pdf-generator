@@ -37,7 +37,7 @@ export class AppController {
     @Res() res: Response,
   ): Promise<void> {
     try {
-      const pdf = await this.appService.getMovieById(id);
+      const pdf = await this.appService.getMovieByIdPdf(id);
       res.setHeader('Content-Type', 'application/pdf');
       res.setHeader(
         'Content-Disposition',
